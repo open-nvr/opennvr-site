@@ -18,7 +18,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
     <title>{siteTitle}</title>
     <meta name="description" content={siteDescription} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.png" type="image/png" />
 
     <!-- OpenGraph -->
     <meta property="og:title" content={siteTitle} />
