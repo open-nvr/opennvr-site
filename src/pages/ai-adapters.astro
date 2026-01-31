@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+<BaseLayout title="AI Adapters" description="AI adapter ecosystem for running models safely and predictably in offline-first environments.">
+  <Section
+    title="AI Adapters"
+    subtitle="Developers extend OpenNVR with adapters for ONNX/TensorRT/OpenVINO/HuggingFace—enterprises add governance and verification."
+  >
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Open SDK</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Adapter contracts, examples, and dev tooling are open so the ecosystem can grow fast.
+        </div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Policy control (Enterprise)</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Decide which models can run where/when, enforce resource quotas, and log decisions for audits.
+        </div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Verified adapters</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Community adapters are open; “verified” adapters get security review + enterprise support eligibility.
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep" />
+
+    <div class="card" style="padding:16px;">
+      <div style="font-weight:900; margin-bottom:6px;">Docs</div>
+      <div style="color:var(--muted); line-height:1.6;">
+        Publish adapter docs, examples, and registry rules at <a href="https://docs.opennvr.org" target="_blank" rel="noopener">docs.opennvr.org</a>.
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+

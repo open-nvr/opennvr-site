@@ -1,0 +1,56 @@
+---
+const features = [
+  {
+    title: "Camera Isolation by Design",
+    desc: "Keep cameras on a private LAN (TB1). OpenNVR ingests streams and exposes only secured restreams—reduce blast radius.",
+    tag: "Security-first",
+  },
+  {
+    title: "Secure Stream Gateway",
+    desc: "TLS/SRTP-compatible restreaming, access control, and per-tenant boundaries. Don’t expose cameras directly.",
+    tag: "Gateway",
+  },
+  {
+    title: "AI Adapters & Ecosystem",
+    desc: "Run ONNX/TensorRT/OpenVINO/HF adapters on your terms. Community adapters are open; verified adapters are enterprise-ready.",
+    tag: "Extensible",
+  },
+  {
+    title: "Auditability & Compliance",
+    desc: "Immutable logs, exports with integrity, retention controls. Make security and AI decisions explainable.",
+    tag: "Governance",
+  },
+  {
+    title: "Offline-First Operations",
+    desc: "Runs without cloud dependency. Perfect for air-gapped, regulated, or unreliable network environments.",
+    tag: "Sovereign",
+  },
+  {
+    title: "Fleet-Friendly Architecture",
+    desc: "Operate multi-site deployments with policy rollout, drift detection, and node health checks (Enterprise).",
+    tag: "Scale",
+  },
+];
+---
+<section style="padding: 24px 0;">
+  <div class="container">
+    <h2 style="margin: 0 0 8px; font-size: 28px;">What OpenNVR gives you</h2>
+    <p style="margin:0 0 16px; color: var(--muted); max-width: 850px;">
+      Built for environments where cameras are untrusted, audits matter, and AI must be controlled—not a black box.
+    </p>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      {features.map((f) => (
+        <div class="card" style="padding: 16px;">
+          <div class="badge" style="margin-bottom:10px;">
+            <span style="width:8px; height:8px; border-radius:999px; background: rgba(167,139,250,.85);"></span>
+            {f.tag}
+          </div>
+          <div style="font-weight:800; font-size: 16px; margin-bottom:6px;">{f.title}</div>
+          <div style="color: var(--muted); line-height:1.55;">{f.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

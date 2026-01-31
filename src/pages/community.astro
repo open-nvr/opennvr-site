@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+<BaseLayout title="Community" description="Contribute, discuss, and build AI adapters for OpenNVR.">
+  <Section title="Community" subtitle="OpenNVR grows with contributors, integrators, and security-minded users.">
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">GitHub</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Issues, roadmap, releases, and contribution guidelines.
+        </div>
+        <div style="margin-top:10px;">
+          <a class="btn primary" href="https://github.com/your-org/opennvr" target="_blank" rel="noopener">Open repo</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Docs</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Architecture, threat model, adapters, and deployment guides.
+        </div>
+        <div style="margin-top:10px;">
+          <a class="btn" href="https://docs.opennvr.org" target="_blank" rel="noopener">View docs</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Security disclosures</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Report security issues privately. See <span class="kbd">/.well-known/security.txt</span>.
+        </div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+

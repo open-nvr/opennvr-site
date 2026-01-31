@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+<BaseLayout title="Architecture" description="Offline-first NVR architecture with camera isolation and secure stream gateway.">
+  <Section
+    title="Architecture"
+    subtitle="A simple model: isolate cameras (TB1), ingest internally, expose only secured restreams + governance."
+  >
+    <div class="card" style="padding:16px;">
+      <div style="font-weight:900; margin-bottom:8px;">High-level flow</div>
+      <ol style="margin:0; padding-left:18px; color:var(--muted); line-height:1.8;">
+        <li>Cameras live on a private camera LAN (no direct user access).</li>
+        <li>OpenNVR ingests RTSP/ONVIF streams internally.</li>
+        <li>OpenNVR restreams through a secure gateway with access control.</li>
+        <li>AI adapters run against ingested streams under policy control (Enterprise).</li>
+      </ol>
+    </div>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top:16px;">
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Trust boundaries</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Separate camera network from user/admin networks. Treat cameras as untrusted endpoints.
+        </div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Secure restream</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Users consume streams from OpenNVR, not from cameras. This prevents “direct camera exposure” failures.
+        </div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Observability</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Logs and metrics are first-class. Enterprise adds immutable audit trails and compliance exports.
+        </div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+

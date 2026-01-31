@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opennvr.org/sitemap.xml
+

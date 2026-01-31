@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+<BaseLayout title="Pricing" description="Community is free. Enterprises pay for governance, compliance, and fleet operations.">
+  <Section
+    title="Pricing"
+    subtitle="Open source for adoption. Paid for assurance, compliance, and multi-site scale."
+  >
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="card" style="padding:16px;">
+        <div class="badge" style="margin-bottom:10px;">Community</div>
+        <div style="font-weight:900; font-size:22px;">Free</div>
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.9;">
+          <li>Core NVR + APIs</li>
+          <li>Offline-first</li>
+          <li>Adapter SDK</li>
+          <li>Community support</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:16px;">
+        <div class="badge" style="margin-bottom:10px;">Enterprise</div>
+        <div style="font-weight:900; font-size:22px;">Subscription</div>
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.9;">
+          <li>AI policy engine</li>
+          <li>Immutable audit logs</li>
+          <li>Compliance reports</li>
+          <li>Verified adapters</li>
+          <li>LTS + support</li>
+        </ul>
+      </div>
+
+      <div class="card" style="padding:16px;">
+        <div class="badge" style="margin-bottom:10px;">Critical</div>
+        <div style="font-weight:900; font-size:22px;">Subscription</div>
+        <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.9;">
+          <li>Air-gapped guarantees</li>
+          <li>Secure AI runtime</li>
+          <li>Signed audit trails</li>
+          <li>Priority SLA</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="sep" />
+
+    <div class="card" style="padding:16px;">
+      <div style="font-weight:900; margin-bottom:6px;">Paid services</div>
+      <div style="color:var(--muted); line-height:1.6;">
+        Camera security assessment, pilot deployments, and enterprise hardening. <a href="/contact">Contact us</a>.
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+

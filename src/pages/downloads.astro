@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+<BaseLayout title="Downloads" description="Get OpenNVR via Docker, packages, or source.">
+  <Section title="Downloads" subtitle="Start simple. Run locally. Then scale to hardened enterprise deployments.">
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:8px;">Docker (recommended)</div>
+        <pre class="card" style="padding:14px; overflow:auto; margin:0; background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.10);">
+docker run -it --rm \
+  -p 8080:8080 \
+  -v opennvr_data:/data \
+  ghcr.io/your-org/opennvr:latest
+        </pre>
+        <p style="color:var(--muted); line-height:1.55; margin:10px 0 0;">
+          Replace image name when your GHCR is ready. Keep this page aligned with your release pipeline.
+        </p>
+      </div>
+
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:8px;">From source</div>
+        <pre class="card" style="padding:14px; overflow:auto; margin:0; background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.10);">
+git clone https://github.com/your-org/opennvr
+cd opennvr
+# follow docs.opennvr.org for build steps
+        </pre>
+        <p style="color:var(--muted); line-height:1.55; margin:10px 0 0;">
+          Keep build instructions in docs; keep this page short.
+        </p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+

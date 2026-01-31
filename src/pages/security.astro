@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+---
+<BaseLayout title="Security" description="Threat model, zero-trust camera isolation, and architectural mitigations.">
+  <Section
+    title="Security-first by architecture"
+    subtitle="OpenNVR assumes cameras can be compromised. The goal is containment, not blind trust."
+  >
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Containment (assume compromise)</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Cameras remain on a private network. OpenNVR ingests and re-streams securely so compromised cameras can’t pivot into your LAN.
+        </div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Threat modeling (STRIDE)</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Spoofing, tampering, repudiation, information disclosure, DoS, elevation of privilege—mapped to controls and audit trails.
+        </div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-weight:900; margin-bottom:6px;">Auditability & evidence</div>
+        <div style="color:var(--muted); line-height:1.55;">
+          Access logs, export integrity, retention enforcement, and governance features (Enterprise) for compliance and incident response.
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep" />
+
+    <div class="card" style="padding:16px;">
+      <div style="font-weight:900; margin-bottom:8px;">Recommended reading</div>
+      <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.8;">
+        <li><a href="https://docs.opennvr.org" target="_blank" rel="noopener">Full threat model and hardening guide</a></li>
+        <li><a href="/architecture">Isolation architecture & trust boundaries</a></li>
+      </ul>
+    </div>
+  </Section>
+</BaseLayout>
+

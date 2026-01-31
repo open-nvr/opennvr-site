@@ -1,0 +1,4 @@
+Contact: mailto:security@opennvr.org
+Preferred-Languages: en
+Policy: https://opennvr.org/security
+
