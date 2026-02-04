@@ -22,13 +22,13 @@ const quick = [
       OpenNVR isolates cameras on a private network, gates access through a secure stream layer, and enables an AI adapter ecosystem with governance and auditability—ideal for regulated and offline-first deployments.
     </p>
 
-    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;">
+    <div class="hero-cta">
       <a class="btn primary" href="/downloads">Get started</a>
       <a class="btn" href="https://docs.opennvr.org" target="_blank" rel="noopener">Read docs</a>
       <a class="btn" href="/security">Threat model</a>
     </div>
 
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 22px;">
+    <div class="hero-grid">
       {quick.map((q) => (
         <div class="card" style="padding: 14px 14px;">
           <div style="display:flex; gap:10px; align-items:flex-start;">
@@ -41,3 +41,38 @@ const quick = [
   </div>
 </section>
 
+<style>
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .hero-cta .btn {
+    min-height: 44px;
+    padding: 12px 18px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  @media (max-width: 480px) {
+    .hero-cta {
+      flex-direction: column;
+    }
+
+    .hero-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

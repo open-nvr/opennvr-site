@@ -8,25 +8,246 @@ const nav = [
   { href: "/pricing", label: "Pricing" },
 ];
 ---
-<header style="position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: rgba(11,16,32,.70); border-bottom: 1px solid rgba(255,255,255,.10);">
-  <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding: 14px 0;">
-    <a href="/" style="display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.3px;">
-      <span style="font-size:20px; font-weight:900; letter-spacing:.3px;">
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-text">
         <span style="color:#fff;">Open</span><span style="color:var(--brand);">NVR</span>
       </span>
-      <span class="badge">open-source • offline-first • sovereign-ai</span>
+      <span class="badge header-badge">open-source • offline-first • sovereign-ai</span>
     </a>
 
-    <nav style="display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;">
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <nav class="nav" id="nav-menu">
       {nav.map((n) => (
-        <a href={n.href} style="color: var(--muted); font-weight:600; font-size:14px;">
-          {n.label}
-        </a>
+        <a href={n.href} class="nav-link">{n.label}</a>
       ))}
-      <a class="btn primary" href="https://github.com/open-nvr" target="_blank" rel="noopener">
+      <a class="btn primary nav-github" href="https://github.com/open-nvr" target="_blank" rel="noopener">
         GitHub
       </a>
     </nav>
   </div>
 </header>
 
+<script>
+  function closeMenu() {
+    const nav = document.getElementById('nav-menu');
+    const toggle = document.getElementById('menu-toggle');
+    const overlay = document.getElementById('nav-overlay');
+    if (nav) nav.classList.remove('nav-open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    if (overlay) overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    const nav = document.getElementById('nav-menu');
+    const toggle = document.getElementById('menu-toggle');
+    const overlay = document.getElementById('nav-overlay');
+    if (nav) nav.classList.add('nav-open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    if (overlay) overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-menu');
+    const overlay = document.getElementById('nav-overlay');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('nav-open');
+        if (isOpen) closeMenu();
+        else openMenu();
+      });
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+    }
+
+    nav?.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', closeMenu);
+    });
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 16, 32, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-text {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+  }
+
+  .header-badge {
+    display: inline-flex;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text);
+    transition: background 0.2s;
+  }
+
+  .hamburger:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 4px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    text-decoration: underline;
+  }
+
+  .nav-github {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  @media (max-width: 768px) {
+    .header-badge {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 51;
+      width: min(280px, 85vw);
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 70px 20px 24px;
+      background: rgba(11, 16, 32, 0.98);
+      border-left: 1px solid var(--border);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      overflow-y: auto;
+    }
+
+    .nav.nav-open {
+      transform: translateX(0);
+    }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 49;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .nav-overlay[aria-hidden="false"] {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-link {
+      padding: 14px 0;
+      font-size: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-github {
+      margin-top: 16px;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .nav-overlay {
+      display: none !important;
+    }
+  }
+</style>
