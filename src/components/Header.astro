@@ -34,6 +34,7 @@ const nav = [
   </div>
 </header>
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+  <button class="nav-close" id="nav-close" aria-label="Close menu" type="button">✕</button>
   <nav class="nav-mobile" id="nav-mobile">
     {nav.map((n) => (
       <a href={n.href} class="nav-link">{n.label}</a>
@@ -45,20 +46,36 @@ const nav = [
 </div>
 
 <script>
+  let scrollY = 0;
+
   function closeMenu() {
     const overlay = document.getElementById('nav-overlay');
     const toggle = document.getElementById('menu-toggle');
     if (overlay) overlay.setAttribute('aria-hidden', 'true');
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, scrollY);
   }
 
   function openMenu() {
     const overlay = document.getElementById('nav-overlay');
     const toggle = document.getElementById('menu-toggle');
+    scrollY = window.scrollY;
     if (overlay) overlay.setAttribute('aria-hidden', 'false');
     if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -74,6 +91,8 @@ const nav = [
         else openMenu();
       });
     }
+
+    document.getElementById('nav-close')?.addEventListener('click', closeMenu);
 
     overlay?.addEventListener('click', (e) => {
       if (e.target === overlay) closeMenu();
@@ -211,19 +230,23 @@ const nav = [
       right: 0;
       bottom: 0;
       width: 100%;
-      height: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-      z-index: 9999;
+      height: 100vh;
+      height: 100dvh;
+      min-height: -webkit-fill-available;
+      z-index: 99999;
       background: var(--header-bg-solid);
       overflow-y: auto;
+      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior: none;
+      touch-action: pan-y;
       display: flex;
       flex-direction: column;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.25s ease, visibility 0.25s ease;
       pointer-events: none;
+      isolation: isolate;
     }
 
     .nav-overlay[aria-hidden="false"] {
@@ -232,13 +255,36 @@ const nav = [
       pointer-events: auto;
     }
 
+    .nav-close {
+      position: absolute;
+      top: calc(env(safe-area-inset-top, 0px) + 16px);
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .nav-close:hover {
+      background: var(--panel-hover);
+    }
+
     .nav-mobile {
       display: flex;
       flex-direction: column;
-      flex: 1;
-      padding: calc(env(safe-area-inset-top, 0px) + 80px) 24px 40px;
+      flex: 1 0 auto;
+      padding: calc(env(safe-area-inset-top, 0px) + 76px) 24px calc(env(safe-area-inset-bottom, 0px) + 40px);
       gap: 0;
-      min-height: min-content;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .nav-mobile .nav-link {
