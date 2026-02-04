@@ -1,7 +1,7 @@
 ---
 const { title, subtitle } = Astro.props;
 ---
-<section style="padding: 26px 0;">
+<section class="page-section">
   <div class="container">
     <h1 style="margin:0 0 8px; font-size: 34px;">{title}</h1>
     {subtitle && <p style="margin:0; color: var(--muted); max-width: 900px; line-height:1.6;">{subtitle}</p>}
@@ -10,3 +10,8 @@ const { title, subtitle } = Astro.props;
   </div>
 </section>
 
+<style>
+  .page-section {
+    padding: var(--space-2xl) 0;
+  }
+</style>

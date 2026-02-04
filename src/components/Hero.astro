@@ -6,7 +6,7 @@ const quick = [
   "Auditability: logs, retention, exports",
 ];
 ---
-<section style="padding: 54px 0 18px;">
+<section class="hero-section">
   <div class="container">
     <div class="badge">
       <span style="width:8px; height:8px; border-radius:999px; background: var(--ok);"></span>
@@ -30,10 +30,10 @@ const quick = [
 
     <div class="hero-grid">
       {quick.map((q) => (
-        <div class="card" style="padding: 14px 14px;">
-          <div style="display:flex; gap:10px; align-items:flex-start;">
-            <div style="width:10px; height:10px; border-radius:4px; margin-top:6px; background: rgba(125,211,252,.75);"></div>
-            <div style="color: var(--muted); line-height:1.5;">{q}</div>
+        <div class="card hero-feature-card">
+          <div class="hero-feature-inner">
+            <div class="hero-feature-dot"></div>
+            <div class="hero-feature-text">{q}</div>
           </div>
         </div>
       ))}
@@ -42,23 +42,51 @@ const quick = [
 </section>
 
 <style>
+  .hero-section {
+    padding: var(--space-5xl) 0 var(--space-xl);
+  }
+
   .hero-cta {
     display: flex;
-    gap: 12px;
+    gap: var(--space-md);
     flex-wrap: wrap;
-    margin-top: 18px;
+    margin-top: var(--space-xl);
   }
 
   .hero-cta .btn {
     min-height: 44px;
-    padding: 12px 18px;
+    padding: var(--space-md) var(--space-lg);
   }
 
   .hero-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    margin-top: 22px;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .hero-feature-card {
+    padding: 14px;
+  }
+
+  .hero-feature-inner {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .hero-feature-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 4px;
+    margin-top: 6px;
+    flex-shrink: 0;
+    background: var(--brand-dim);
+  }
+
+  .hero-feature-text {
+    color: var(--muted);
+    line-height: 1.5;
   }
 
   @media (max-width: 480px) {

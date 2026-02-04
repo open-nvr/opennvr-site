@@ -12,7 +12,7 @@ const nav = [
   <div class="container header-inner">
     <a href="/" class="logo">
       <span class="logo-text">
-        <span style="color:#fff;">Open</span><span style="color:var(--brand);">NVR</span>
+        <span style="color: var(--text);">Open</span><span style="color: var(--brand);">NVR</span>
       </span>
       <span class="badge header-badge">open-source • offline-first • sovereign-ai</span>
     </a>
@@ -85,8 +85,8 @@ const nav = [
     top: 0;
     z-index: 50;
     backdrop-filter: blur(10px);
-    background: rgba(11, 16, 32, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--footer-border);
   }
 
   .header-inner {
@@ -133,7 +133,7 @@ const nav = [
   }
 
   .hamburger:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--panel-hover);
   }
 
   .hamburger-line {
@@ -204,7 +204,7 @@ const nav = [
       align-items: stretch;
       gap: 0;
       padding: 70px 20px 24px;
-      background: rgba(11, 16, 32, 0.98);
+      background: var(--header-bg-solid);
       border-left: 1px solid var(--border);
       box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
       transform: translateX(100%);
@@ -220,7 +220,7 @@ const nav = [
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: var(--overlay-bg);
       z-index: 49;
       opacity: 0;
       transition: opacity 0.25s ease;
@@ -236,7 +236,7 @@ const nav = [
     .nav-link {
       padding: 14px 0;
       font-size: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav-github {

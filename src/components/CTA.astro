@@ -1,13 +1,13 @@
-<section style="padding: 26px 0 60px;">
+<section class="cta-section">
   <div class="container">
-    <div class="card" style="padding: 18px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-      <div>
-        <div style="font-weight:900; font-size: 18px; margin-bottom:4px;">Want a pilot or a security assessment?</div>
-        <div style="color: var(--muted); max-width: 720px; line-height:1.5;">
+    <div class="card cta-card">
+      <div class="cta-content">
+        <div class="cta-title">Want a pilot or a security assessment?</div>
+        <div class="cta-desc">
           Start with a camera exposure & posture assessment. Then deploy OpenNVR to isolate cameras and gate streams securely.
         </div>
       </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <div class="cta-actions">
         <a class="btn primary" href="/contact">Talk to us</a>
         <a class="btn" href="/pricing">See plans</a>
       </div>
@@ -15,3 +15,35 @@
   </div>
 </section>
 
+<style>
+  .cta-section {
+    padding: var(--space-2xl) 0 var(--space-6xl);
+  }
+
+  .cta-card {
+    padding: 18px;
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cta-title {
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: var(--space-xs);
+  }
+
+  .cta-desc {
+    color: var(--muted);
+    max-width: 720px;
+    line-height: 1.5;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+</style>

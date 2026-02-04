@@ -1,19 +1,58 @@
-<footer style="margin-top: 52px; padding: 34px 0; border-top: 1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.14);">
-  <div class="container" style="display:grid; gap:14px;">
-    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
-      <div style="color: var(--muted); font-size:14px;">
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-copy">
         © {new Date().getFullYear()} OpenNVR • Security-first NVR + AI adapter ecosystem
       </div>
-      <div style="display:flex; gap:14px; flex-wrap:wrap; color: var(--muted); font-size:14px;">
+      <div class="footer-links">
         <a href="/contact">Contact</a>
         <a href="https://docs.opennvr.org" target="_blank" rel="noopener">Docs</a>
         <a href="/security">Security</a>
       </div>
     </div>
 
-    <div style="color: var(--muted2); font-size:13px; line-height:1.5;">
+    <div class="footer-note">
       OpenNVR is an open-source project. Enterprise subscriptions fund long-term security updates, compliance tooling, and fleet governance.
     </div>
   </div>
 </footer>
 
+<style>
+  .site-footer {
+    margin-top: var(--space-4xl);
+    padding: var(--space-3xl) 0;
+    border-top: 1px solid var(--footer-border);
+    background: var(--footer-bg);
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 14px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy,
+  .footer-links {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .footer-note {
+    color: var(--muted2);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+</style>

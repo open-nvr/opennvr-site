@@ -32,25 +32,75 @@ const features = [
   },
 ];
 ---
-<section style="padding: 24px 0;">
+<section class="feature-section">
   <div class="container">
-    <h2 style="margin: 0 0 8px; font-size: 28px;">What OpenNVR gives you</h2>
-    <p style="margin:0 0 16px; color: var(--muted); max-width: 850px;">
+    <h2 class="feature-title">What OpenNVR gives you</h2>
+    <p class="feature-subtitle">
       Built for environments where cameras are untrusted, audits matter, and AI must be controlled—not a black box.
     </p>
 
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+    <div class="feature-grid">
       {features.map((f) => (
-        <div class="card" style="padding: 16px;">
-          <div class="badge" style="margin-bottom:10px;">
-            <span style="width:8px; height:8px; border-radius:999px; background: rgba(167,139,250,.85);"></span>
+        <div class="card feature-card">
+          <div class="badge feature-tag">
+            <span class="feature-tag-dot"></span>
             {f.tag}
           </div>
-          <div style="font-weight:800; font-size: 16px; margin-bottom:6px;">{f.title}</div>
-          <div style="color: var(--muted); line-height:1.55;">{f.desc}</div>
+          <div class="feature-card-title">{f.title}</div>
+          <div class="feature-card-desc">{f.desc}</div>
         </div>
       ))}
     </div>
   </div>
 </section>
 
+<style>
+  .feature-section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .feature-title {
+    margin: 0 0 var(--space-sm);
+    font-size: 28px;
+  }
+
+  .feature-subtitle {
+    margin: 0 0 var(--space-lg);
+    color: var(--muted);
+    max-width: 850px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .feature-card {
+    padding: var(--space-lg);
+  }
+
+  .feature-tag {
+    margin-bottom: 10px;
+  }
+
+  .feature-tag-dot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--brand2-dim);
+    flex-shrink: 0;
+  }
+
+  .feature-card-title {
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .feature-card-desc {
+    color: var(--muted);
+    line-height: 1.55;
+  }
+</style>
