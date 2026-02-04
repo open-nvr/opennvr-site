@@ -23,7 +23,6 @@ const nav = [
       <span class="hamburger-line"></span>
     </button>
 
-    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
     <nav class="nav" id="nav-menu">
       {nav.map((n) => (
         <a href={n.href} class="nav-link">{n.label}</a>
@@ -34,6 +33,7 @@ const nav = [
     </nav>
   </div>
 </header>
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
 <script>
   function closeMenu() {
@@ -198,8 +198,10 @@ const nav = [
       top: 0;
       right: 0;
       bottom: 0;
-      z-index: 51;
+      left: auto;
+      z-index: 9999;
       width: min(280px, 85vw);
+      max-width: 100%;
       flex-direction: column;
       align-items: stretch;
       gap: 0;
@@ -219,9 +221,15 @@ const nav = [
     .nav-overlay {
       display: none;
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
       background: var(--overlay-bg);
-      z-index: 49;
+      z-index: 9998;
       opacity: 0;
       transition: opacity 0.25s ease;
       pointer-events: none;
